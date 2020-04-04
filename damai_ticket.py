@@ -9,7 +9,6 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
-chrome_driver = '/Users/wenjunzhang/Desktop/Workspace/damai_ticket/chromedriver'
 class Concert(object):
     def __init__(self, session, price, real_name, nick_name, ticket_num, damai_url, target_url):
         self.session = session  # 场次序号优先级
@@ -73,7 +72,7 @@ class Concert(object):
     def enter_concert(self):
         print(u'###打开浏览器，进入大麦网###')
         if not exists('cookies.pkl'):   # 如果不存在cookie.pkl,就获取一下
-            self.driver = webdriver.Chrome(executable_path = chrome_driver)
+            self.driver = webdriver.Chrome()
             self.get_cookie()
             print(u'###成功获取Cookie，重启浏览器###')
             self.driver.quit()
